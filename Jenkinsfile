@@ -3,17 +3,17 @@ pipeline {
 		stages {
 			stage('install') {
 					steps { 
-						sh 'sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
-						sh 'sudo yum clean all'
+						sh 'yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
+						sh 'yum clean all'
 						sh 'yum-config-manager --disable download'
-						sh 'sudo yum install docker'
-						sh 'sudo service docker start'
+						sh 'yum install docker'
+						sh 'service docker start'
 						}
 					}
                        stage('test') {
 				steps {
-					sh 'sudo docker pull tomcat'
-					sh 'sudo docker images'
+					sh 'docker pull tomcat'
+					sh 'docker images'
 					}
 			}
 			stage('build') {
