@@ -1,6 +1,25 @@
 pipeline {
-	agent any
+	agent any 
 		stages {
+			stage('install') {
+					steps { 
+						sh 'sudo yum-config-manager --add-repo https://download. docker.com/linux/centos/docker-ce.repo
+						sh 'sudo yum clean all'
+						sh 'yum-config-manager --disable download'
+						sh 'sudo yum install docker'
+						sh 'sudo service docker start'
+						}
+					}
+			}
+	agent {
+		docker { image 'node:7-alpine' }
+                  }
+		stages {
+                       stage('test') {
+				steps {
+					sh 'node --version'
+					}
+			}
 			stage('build') {
 				steps {
 					sh 'javac -d . src/*.java'                 
