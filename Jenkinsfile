@@ -15,7 +15,7 @@ pipeline {
 			}
 			stage('copy') {
 				steps {
-					sh 'cp -r /var/jenkins_home/workspace/test /tmp'
+					sh 'cp -r /var/jenkins_home/workspace/test/rectangle.jar /tmp'
 					}
 			}
 		}
