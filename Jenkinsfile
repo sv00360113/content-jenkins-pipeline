@@ -10,13 +10,10 @@ pipeline {
 						sh 'sudo service docker start'
 						}
 					}
-			}
-      // This step should not normally be used in your script. Consult the inline help for details.
-dockerFingerprintFrom dockerfile: '', image: 'tomcat'
-		stages {
                        stage('test') {
 				steps {
-					sh 'node --version'
+					sh 'sudo docker pull tomcat'
+					sh 'sudo docker images'
 					}
 			}
 			stage('build') {
