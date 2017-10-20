@@ -13,6 +13,11 @@ pipeline {
 					sh 'java -jar rectangle.jar 7 9' 
 					}
 			}
+			stage('copy') {
+				steps {
+					sh 'cp -r /var/jenkins_home/workspace/test /tmp'
+					}
+			}
 		}
 			post { 
 				success {
