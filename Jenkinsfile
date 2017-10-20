@@ -3,7 +3,7 @@ pipeline {
 		stages {
 			stage('install') {
 					steps { 
-						sh 'sudo yum-config-manager --add-repo https://download. docker.com/linux/centos/docker-ce.repo
+						sh 'sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
 						sh 'sudo yum clean all'
 						sh 'yum-config-manager --disable download'
 						sh 'sudo yum install docker'
