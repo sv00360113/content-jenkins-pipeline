@@ -11,8 +11,8 @@ pipeline {
 						}
 					}
 			}
-		docker { image 'node:7-alpine' }
-                  
+      // This step should not normally be used in your script. Consult the inline help for details.
+dockerFingerprintFrom dockerfile: '', image: 'tomcat'
 		stages {
                        stage('test') {
 				steps {
